@@ -36,7 +36,7 @@ app.post('/bfhl', (req, res) => {
                 else oddNumbers.push(item);
                 sum += num;
             }
-            else if (typeof item === "string") {
+            else {
                 let isAlphabet = true;
                 for (let i = 0; i < item.length; i++) {
                     let code = item.charCodeAt(i);
@@ -51,9 +51,6 @@ app.post('/bfhl', (req, res) => {
                     specialChars.push(item);
                 }
             }
-            else { 
-                specialChars.push(item);
-            }
         });
 
         
@@ -62,7 +59,7 @@ app.post('/bfhl', (req, res) => {
         concatStr = alternatingLetter(concatStr);
 
         // console.log(concatStr)
-        
+
         const response = {
             is_success: true,
             user_id: `${FULL_NAME}_${DOB}`,
